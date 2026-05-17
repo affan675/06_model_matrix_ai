@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModelMatrix — AI Model Comparison</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome CDN for icons (optional, fallback to emoji) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- ========== PRELOADER OVERLAY ========== -->
+    <div id="preloader" class="preloader" aria-hidden="true">
+        <div class="preloader__content">
+            <div class="preloader__glow-ring"></div>
+            <h1 class="preloader__title">ModelMatrix</h1>
+            <p class="preloader__subtitle">AI Benchmark Suite</p>
+            <div class="preloader__progress-wrap">
+                <div class="preloader__progress-bar" id="preloaderBar"></div>
+            </div>
+            <p class="preloader__message" id="preloaderMessage">Initializing...</p>
+            <p class="preloader__percentage" id="preloaderPercent">0%</p>
+        </div>
+    </div>
+
+    <!-- ========== CUSTOM CURSOR ========== -->
+<div id="cursorOuter" class="cursor-outer">
+    <div id="cursorInner" class="cursor-inner"></div>
+</div>
+   <header class="header">
+    <div class="header__inner">
+        <div class="header__top-row">
+            <h1 class="header__logo">
+                <span class="header__logo-icon">◈</span> ModelMatrix
+            </h1>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle light/dark mode">
+                <span class="theme-toggle__icon">☀️</span>
+            </button>
+        </div>
+        <p class="header__tagline">Compare the world's most advanced AI models</p>
+        <button id="btnShowAll" class="btn btn--ghost" style="display:none;">← All Providers</button>
+    </div>
+</header>
+
+    <!-- ========== MAIN CONTAINER ========== -->
+    <main class="main" id="mainContent" style="opacity:0; transition: opacity 0.6s ease;">
+        <!-- Provider Cards Section -->
+        <section id="providerSection" class="section">
+            <h2 class="section__title">Select an AI Provider</h2>
+            <div id="providerGrid" class="provider-grid"></div>
+        </section>
+
+        <!-- Model Cards Section -->
+        <section id="modelSection" class="section" style="display:none;">
+            <h2 class="section__title" id="modelSectionTitle">Models</h2>
+            <div id="modelGrid" class="model-grid"></div>
+        </section>
+
+        <!-- Empty state when no provider selected -->
+        <div id="emptyState" class="empty-state">
+            <div class="empty-state__icon">📊</div>
+            <p class="empty-state__text">Click a provider card above to explore their AI models.</p>
+        </div>
+    </main>
+
+    <!-- ========== COMPARE SIDEBAR (BOTTOM BAR) ========== -->
+    <div id="compareBar" class="compare-bar" style="display:none;">
+        <div class="compare-bar__inner">
+            <span class="compare-bar__label">Comparing: </span>
+            <div id="compareBarChips" class="compare-bar__chips"></div>
+            <button id="btnCompareOpen" class="btn btn--primary" disabled>Compare Selected</button>
+            <button id="btnCompareClear" class="btn btn--ghost btn--sm">Clear</button>
+        </div>
+    </div>
+
+    <!-- ========== COMPARISON MODAL ========== -->
+    <div id="compareModal" class="modal-overlay" style="display:none;" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <div class="modal__header">
+                <h2 id="modalTitle" class="modal__title">⚡ Model Comparison</h2>
+                <button id="btnModalClose" class="modal__close" aria-label="Close">&times;</button>
+            </div>
+            <div id="modalBody" class="modal__body"></div>
+            <div class="modal__footer">
+                <button id="btnModalClear" class="btn btn--outline">Clear All & Close</button>
+                <button id="btnModalClose2" class="btn btn--primary">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== SCRIPTS ========== -->
+    <script src="js/data.js"></script>
+    <script src="js/preloader.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/compare.js"></script>
+    <script>
+        // ---- Theme Toggle ----
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+
+// Check saved preference
+if (localStorage.getItem('theme') === 'light') {
+  body.classList.add('light-mode');
+  themeToggle.querySelector('.theme-toggle__icon').textContent = '🌙';
+}
+
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('light-mode');
+  const isLight = body.classList.contains('light-mode');
+  themeToggle.querySelector('.theme-toggle__icon').textContent = isLight ? '🌙' : '☀️';
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+});
+    </script>
+</body>
+</html>
