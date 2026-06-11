@@ -155,21 +155,10 @@ Made with ❤️ by Model Matrix contributors.
 **Compare the world's most advanced AI models side by side.**  
 *Intelligence · Speed · Cost — at a glance.*
 
-[🚀 Live Demo](#) (add your LINK) • [🐛 Report Bug](https://github.com/affan675/modelmatrix/issues) • [✨ Request Feature](https://github.com/yourusername/modelmatrix/issues)
+[🚀 Live Demo](#) (https://affan675.github.io/06_model_matrix_ai/git add) • [🐛 Report Bug](https://github.com/affan675/modelmatrix/issues) • [✨ Request Feature](https://github.com/yourusername/modelmatrix/issues)
 
 </div>
 
----
-
-## 📸 Screenshots
-
-<div align="center">
-  <img src="screenshots/dark-mode.png" alt="ModelMatrix Dark Mode" width="80%" />
-  <br/><br/>
-  <img src="screenshots/light-mode.png" alt="ModelMatrix Light Mode" width="80%" />
-  <br/><br/>
-  <img src="screenshots/comparison-modal.png" alt="Comparison Modal" width="80%" />
-</div>
 
 
 
